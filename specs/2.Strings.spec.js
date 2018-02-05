@@ -3,41 +3,41 @@ describe("Strings", () => {
   describe("constants", () => {
 
     it("\"hello\", \"a\", \"long word\" are constans", () => {
-      expect(solveme).toBe("hello");
-      expect(solveme).toBe("a");
-      expect(solveme).toBe("long word");
+      expect("hello").toBe("hello");
+      expect("a").toBe("a");
+      expect("long word").toBe("long word");
     });
 
     it("can be written with 'single quotes' instead of double quoetes", () => {
-      expect(solveme).toBe('hello');
-      expect(solveme).toBe('a');
-      expect(solveme).toBe('long word');
+      expect('hello').toBe('hello');
+      expect('a').toBe('a');
+      expect('long word').toBe('long word');
     });
 
     it("can be written with `back-tick` instead of double quotes", () => {
-      expect(solveme).toBe(`hello`);
-      expect(solveme).toBe(`a`);
-      expect(solveme).toBe(`long word`);
+      expect('hello').toBe(`hello`);
+      expect('a').toBe(`a`);
+      expect('long word').toBe(`long word`);
     });
 
     it("strings with `back-tick` are called template literals", () => {
-      expect(solveme).toBe(`hello ${2} you`);
+      expect('hello 2 you').toBe(`hello ${2} you`);
     });
 
     it("template literals can be multiline, adds \\n automatically", () => {
-      expect(solveme).toBe(`hello
+      expect('hello\nworld').toBe(`hello
 world`)
     });
 
     it('template literals can use interpolation with ${expression}', () => {
       const saluteTo = "world";
 
-      expect(solveme).toBe(`hello ${saluteTo}`);
-      expect(solveme).toBe(`the answer is ${2 + 2 * 20}`);
+      expect('hello world').toBe(`hello ${saluteTo}`);
+      expect('the answer is 42').toBe(`the answer is ${2 + 2 * 20}`);
     });
 
     it("character is a string with length 1", () => {
-      expect(solveme).toBe("hello"[1])
+      expect("e").toBe("hello"[1])
     });
 
   });
@@ -45,15 +45,15 @@ world`)
   describe("encoded as UCS-2", () => {
 
     it("each position is 16bits and most characters are length 1", () => {
-      expect(solveme).toBe("hello".length);
-      expect(solveme).toBe("mataró".length);
-      expect(solveme).toBe("νερό".length);
-      expect(solveme).toBe("中国".length);
-      expect(solveme).toBe("水".length);
+      expect(5).toBe("hello".length);
+      expect(6).toBe("mataró".length);
+      expect(4).toBe("νερό".length);
+      expect(2).toBe("中国".length);
+      expect(1).toBe("水".length);
     });
 
     it("some characters have double length", () => {
-      expect(solveme).toBe("𝄞".length);
+      expect(2).toBe("𝄞".length);
     });
 
   });
@@ -61,7 +61,7 @@ world`)
   describe("operators", () => {
 
     it("a + b concatenates two strings", () => {
-      expect(solveme).toBe("hello " + "world");
+      expect('hello world').toBe("hello " + "world");
     });
 
   });
@@ -69,27 +69,27 @@ world`)
   describe("comparisons", () => {
 
     it("are alphabetically", () => {
-      expect(solveme).toBe("jon" < "cersei");
-      expect(solveme).toBe("sansa" <= "arya");
-      expect(solveme).toBe("jaime" >= "davos");
-      expect(solveme).toBe("samwell" > "daenerys");
+      expect(false).toBe("jon" < "cersei");
+      expect(false).toBe("sansa" <= "arya");
+      expect(true).toBe("jaime" >= "davos");
+      expect(true).toBe("samwell" > "daenerys");
     });
 
     it("two strings are equal if have the same length and same characters", () => {
-      expect(solveme).toBe("jon" === "jonnas");
-      expect(solveme).toBe("podrick" !== "hodor");
+      expect(false).toBe("jon" === "jonnas");
+      expect(true).toBe("podrick" !== "hodor");
     });
 
     it("things are equal only if they are of the same type", () => {     
-      expect(solveme).toBe("2" === 2);
-      expect(solveme).toBe("2" !== 2);
+      expect(false).toBe("2" === 2);
+      expect(true).toBe("2" !== 2);
     });
 
     it("do not trust abstract equality comparisons (a == b, a != b)", () => {
-      expect(solveme).toBe("" == false);
-      expect(solveme).toBe("" == []);
-      expect(solveme).toBe("tywin" != true);
-      expect(solveme).toBe("joffrey" != ["joffrey"]);
+      expect(true).toBe("" == false);
+      expect(true).toBe("" == []);
+      expect(true).toBe("tywin" != true);
+      expect(false).toBe("joffrey" != ["joffrey"]);
     });
 
   });
@@ -97,39 +97,39 @@ world`)
   describe("methods", () => {
 
     it("slice(begin, end) gets a substring from the string", () => {
-      expect(solveme).toBe("hello".slice(0, 4));
+      expect('hell').toBe("hello".slice(0, 4));
     });
 
     it("slice(begin) gets the substring starting at begin", () => {
-      expect(solveme).toBe("hello world".slice(6));
+      expect('world').toBe("hello world".slice(6));
     });
 
     it("slice(-begin) gets the substring starting at the last character count", () => {
-      expect(solveme).toBe("hello world".slice(-5));
+      expect('world').toBe("hello world".slice(-5));
     });
 
     it("indexOf finds the first occurrence of a substring", () => {
-      expect(solveme).toBe("foobar".indexOf("bar"));
+      expect(3).toBe("foobar".indexOf("bar"));
     });
 
     it("indexOf returns -1 if no matching", () => {
-      expect(solveme).toBe("foobar".indexOf("pop"));
+      expect(-1).toBe("foobar".indexOf("pop"));
     });
 
     it("includes true if there is an occurrence of a substring", () => {
-      expect(solveme).toBe("foobar".includes("bar"));
+      expect(true).toBe("foobar".includes("bar"));
     });
 
     it("includes returns false if no matching", () => {
-      expect(solveme).toBe("foobar".includes("pop"));
+      expect(false).toBe("foobar".includes("pop"));
     });
 
     it("toUpperCase converts a string to uppercase", () => {
-      expect(solveme).toBe("Hello".toUpperCase());
+      expect('HELLO').toBe("Hello".toUpperCase());
     });
 
     it("toLowerCase converts a string to lowercase", () => {
-      expect(solveme).toBe("Hello".toLowerCase());
+      expect('hello').toBe("Hello".toLowerCase());
     });
 
   });
@@ -137,7 +137,7 @@ world`)
   describe("cast to String", () => {
 
     it("can convert any object to string with String()", () => {
-      expect(solveme).toBe(String(3));
+      expect('3').toBe(String(3));
     });
 
   });

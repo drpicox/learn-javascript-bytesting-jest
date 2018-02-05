@@ -3,19 +3,19 @@ describe("Objects", () => {
   describe("JSON", () => {
 
     it("{} is an empty object", () => {
-      expect(solveme).toEqual(jasmine.any(Object));
+      expect({}).toEqual(jasmine.any(Object));
     });
 
     it('{hello: "world"} is an object with one field', () => {
-      expect(solveme).toEqual(jasmine.any(Object));
+      expect({hello: "world"}).toEqual(jasmine.any(Object));
     });
 
     it("JSON.parse converts JSON strings to obejcts", () => {
-      expect(solveme).toEqual(JSON.parse('{"a":1,"b":[2,3]}'));
+      expect({a:1, b:[2,3]}).toEqual(JSON.parse('{"a":1,"b":[2,3]}'));
     });
 
     it("JSON.stringify converts any object to JSON", () => {
-      expect(solveme).toEqual(JSON.stringify({b:3}));
+      expect('{"b":3}').toEqual(JSON.stringify({b:3}));
     });
 
   });
@@ -31,32 +31,37 @@ describe("Objects", () => {
     });
 
     it("you can use . to get the value of a property", () => {
-      expect(solveme).toBe(object.all);
+      expect(42).toBe(object.all);
     });
 
     it("you can use [string] to get the value of a property", () => {
-      expect(solveme).toBe(object["hello"]);
+      expect('world').toBe(object["hello"]);
     });
 
     it("you can use . to set the value of a property", () => {
       object.hello = "you";
-      expect(solveme).toEqual(object);
+      expect({hello:'you', all:42}).toEqual(object);
     });
 
     it("you can use [string] to set the value of a property", () => {
       object["hello"] = "here";
-      expect(solveme).toEqual(object);
+      expect({hello:'here', all:42}).toEqual(object);
     });
 
     it("return undefined if the property is not defined", () => {
-      expect(solveme).toBe(object.foo);
-      expect(solveme).toBe(object["bar"]);
+      expect(undefined).toBe(object.foo);
+      expect(undefined).toBe(object["bar"]);
     });
 
     it("you can add dynamically any property", () => {
       object.foo = "banana";
       object["bar"] = "apple";
-      expect(solveme).toEqual(object);
+      expect({
+        hello: 'world',
+        all: 42,
+        foo: 'banana',
+        bar: 'apple',
+      }).toEqual(object);
     });
 
   });
@@ -72,11 +77,11 @@ describe("Objects", () => {
     });
 
     it("Object.keys() gets an array with all the property keys", () => {
-      expect(solveme).toEqual(Object.keys(object));
+      expect(['hello', 'all']).toEqual(Object.keys(object));
     });
 
     it("Object.values() gets an array with all property values", () => {
-      expect(solveme).toEqual(Object.values(object));
+      expect(['world', 42]).toEqual(Object.values(object));
     });
 
     it("Object.keys() can be used to walk all properties of an object", () => {
@@ -87,7 +92,7 @@ describe("Objects", () => {
           result = `${key}=${value}`
         }
       });
-      expect(solveme).toBe(result);
+      expect('hello=world').toBe(result);
     });
 
   });

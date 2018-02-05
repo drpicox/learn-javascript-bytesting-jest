@@ -3,9 +3,9 @@ describe("Arrays", () => {
   describe("constants follows JSON rules", () => {
 
     it("[1,2,3], [42,\"sense\",[\"of\", \"life\"]], []", () => {
-      expect(solveme).toEqual(jasmine.any(Array));
-      expect(solveme).toEqual(jasmine.any(Array));
-      expect(solveme).toEqual(jasmine.any(Array));
+      expect([1,2,3]).toEqual(jasmine.any(Array));
+      expect([42,'sense',['of', 'life']]).toEqual(jasmine.any(Array));
+      expect([]).toEqual(jasmine.any(Array));
     });
 
   });
@@ -16,22 +16,22 @@ describe("Arrays", () => {
   describe("get set", () => {
 
     it("you can use [index] to read any position", () => {
-      expect(solveme).toBe(array[1]);
+      expect(2).toBe(array[1]);
     });
 
     it("you can use [index] to set any position", () => {
       array[1] = 4;
-      expect(solveme).toEqual(array);
+      expect([1,4,3]).toEqual(array);
     });
 
     it("you can mix types", () => {
       array[1] = "missandei";
-      expect(solveme).toEqual(array);
+      expect([1,'missandei',3]).toEqual(array);
     });
 
     it("you get undefined if you read an unset number", () => {
-      expect(solveme).toBe(array[5]);
-      expect(solveme).toBe(array[-1]);
+      expect(undefined).toBe(array[5]);
+      expect(undefined).toBe(array[-1]);
     });
 
   });
@@ -39,14 +39,14 @@ describe("Arrays", () => {
   describe("length", () => {
 
     it("length returns the actual length of the array", () => {
-      expect(solveme).toBe(array.length);
+      expect(3).toBe(array.length);
     });
   });
 
   describe("can mutate", () => {
 
     it("unmutated array", () => {
-      expect(solveme).toEqual(array);
+      expect([1,2,3]).toEqual(array);
     });
 
     describe("sort", () => {
@@ -55,25 +55,25 @@ describe("Arrays", () => {
         array = ["sandor", "margaery", "stannis"];
         array.sort();
 
-        expect(solveme).toEqual(array);
+        expect(["margaery", "sandor", "stannis"]).toEqual(array);
       });
 
       it("sort returns the array itself ordered", () => {
         array = ["sandor", "margaery", "stannis"];
 
-        expect(solveme).toBe(array.sort());
+        expect(array).toBe(array.sort());
       });
 
       it("sort orders strings by default, if no, it internally converts all elements to string", () => {
         array = [1, 5, 10];
 
-        expect(solveme).toEqual(array.sort());
+        expect([1, 10, 5]).toEqual(array.sort());
       });
 
       it("sort accepts a ordering function", () => {
         array = [1, 5, 10];
 
-        expect(solveme).toEqual(array.sort((a, b) => a - b));
+        expect([1, 5, 10]).toEqual(array.sort((a, b) => a - b));
       });
 
     });
@@ -82,11 +82,11 @@ describe("Arrays", () => {
   
       it("reverses the contents of an array", () => {
         array.reverse();
-        expect(solveme).toEqual(array);
+        expect([3,2,1]).toEqual(array);
       });
 
       it("returns the reversed array itself", () => {
-        expect(solveme).toBe(array.reverse());
+        expect(array).toBe(array.reverse());
       });
 
     });
@@ -100,60 +100,60 @@ describe("Arrays", () => {
         let copy = array.slice();
         array[2] = "c";
 
-        expect(solveme).toEqual(copy);
+        expect([1,2,3]).toEqual(copy);
       });
 
       it("slice(begin,end) can copy a part of an array", () => {
-        expect(solveme).toEqual(["a", "b", 1, 2, 3, "c"].slice(2, 5));
+        expect([1,2,3]).toEqual(["a", "b", 1, 2, 3, "c"].slice(2, 5));
       });
 
       it("slice(position) copies from the position to the end", () => {
-        expect(solveme).toEqual(array.slice(1));
+        expect([2,3]).toEqual(array.slice(1));
       });
 
       it("slice(-position) copies from the last nth position to the end", () => {
-        expect(solveme).toEqual(array.slice(-1));
+        expect([3]).toEqual(array.slice(-1));
       });
     });
 
     describe("concat", () => {
       it("concatenates another array", () => {
-        expect(solveme).toEqual(array.concat([4,5]));
+        expect([1,2,3,4,5]).toEqual(array.concat([4,5]));
       });
 
       it("does not modifies the array", () => {
         array.concat([4,5]);
-        expect(solveme).toEqual(array);
+        expect([1,2,3]).toEqual(array);
       });
     });
 
     describe("iterators", () => {
 
       it("filter selects elements from the array", () => {
-        expect(solveme).toEqual(array.filter(n => n % 2 === 1));
+        expect([1,3]).toEqual(array.filter(n => n % 2 === 1));
       });
 
       it("filter can remove an element from array", () => {
         const newArray = array.filter(n => n === 1);
-        expect(solveme).toEqual(newArray);
+        expect([1]).toEqual(newArray);
       });
 
       it("map applies a function to each element", () => {
-        expect(solveme).toEqual(array.map(n => n * 2));
+        expect([2,4,6]).toEqual(array.map(n => n * 2));
       });
 
       it("reduce(fn, initial) applies an accumulator operation", () => {
-        expect(solveme).toEqual(array.reduce((s, n) => s + n, 0));
+        expect(6).toEqual(array.reduce((s, n) => s + n, 0));
       });
 
       it("every evaluates if a condition is satisfied by all elements", () => {
-        expect(solveme).toBe(array.every(n => n >= 0));
-        expect(solveme).toBe(array.every(n => n % 2 === 0));
+        expect(true).toBe(array.every(n => n >= 0));
+        expect(false).toBe(array.every(n => n % 2 === 0));
       });
 
       it("some evaluates if a condition is satisfied by any elements", () => {
-        expect(solveme).toBe(array.some(n => n % 2 === 0));
-        expect(solveme).toBe(array.some(n => n === -1));
+        expect(true).toBe(array.some(n => n % 2 === 0));
+        expect(false).toBe(array.some(n => n === -1));
       });
 
       it("some can be used to process an array until a condition found", () => {
@@ -162,14 +162,14 @@ describe("Arrays", () => {
           result *= n;
           return n === 2;
         });
-        expect(solveme).toBe(result);
+        expect(2).toBe(result);
       });
 
       it("forEach executes a function for each element", () => {
         let count = 0;
         array.forEach(n => count += 1);
 
-        expect(solveme).toBe(count);
+        expect(3).toBe(count);
       });
 
       it("none modifies the array", () => {
@@ -180,7 +180,7 @@ describe("Arrays", () => {
         array.some(n => n === 2);
         array.forEach(n => n++);
 
-        expect(solveme).toEqual(array);
+        expect([1,2,3]).toEqual(array);
       });
 
     });
@@ -190,27 +190,27 @@ describe("Arrays", () => {
       beforeEach(() => { array = ["a", "b", "c"]; });
 
       it("indexOf(value) looks for the same exact value position", () => {
-        expect(solveme).toBe(array.indexOf("b"));
+        expect(1).toBe(array.indexOf("b"));
       });
 
       it("indexOf(value) returns -1 if the element does not exists", () => {
-        expect(solveme).toBe(array.indexOf("e"));
+        expect(-1).toBe(array.indexOf("e"));
       });
 
       it("find returns the first element that satisfies a condition", () => {
-        expect(solveme).toBe(array.find(l => l > "a"));
+        expect('b').toBe(array.find(l => l > "a"));
       });
 
       it("find returns undefined if no element satisfies the condition", () => {
-        expect(solveme).toBe(array.find(l => l > "e"));
+        expect(undefined).toBe(array.find(l => l > "e"));
       });
 
       it("findIndex returns the position of the first element that satisfies a condition", () => {
-        expect(solveme).toBe(array.findIndex(l => l > "a"));
+        expect(1).toBe(array.findIndex(l => l > "a"));
       });
 
       it("findIndex returns -1 if no element satisfies the condition", () => {
-        expect(solveme).toBe(array.findIndex(l => l > "e"));
+        expect(-1).toBe(array.findIndex(l => l > "e"));
       });
 
     });
@@ -223,16 +223,16 @@ describe("Arrays", () => {
       let copy = [...array];
       array[1] = 'x';
 
-      expect(solveme).toEqual(copy);
+      expect([1,2,3]).toEqual(copy);
     });
 
     it('can create a copy of the array with new elements', () => {
-      expect(solveme).toEqual([0, ...array, 4]);
+      expect([0,1,2,3,4]).toEqual([0, ...array, 4]);
     });
 
     it('can concatenate arrays', () => {
       let other = ['a','b','c'];
-      expect(solveme).toEqual([...array, ...other]);
+      expect([1,2,3,'a','b','c']).toEqual([...array, ...other]);
     });
 
   });
@@ -242,28 +242,28 @@ describe("Arrays", () => {
     it('you can get the first elements', () => {
       let [one, two] = array;
 
-      expect(solveme).toEqual(one + two);
+      expect(3).toEqual(one + two);
     });
 
     it('you can get the remaining elements of the array', () => {
       let [first, ...tail] = array;
 
-      expect(solveme).toEqual(tail);
+      expect([2,3]).toEqual(tail);
     });
 
   });
 
-  xdescribe("complete later", () => {
+  describe("complete later", () => {
 
     describe("get set", () => {
       it("you can set any position (grows dinamically)", () => {
         array[4] = 5;
-        expect(solveme).toBe(array[4]);
+        expect(5).toBe(array[4]);
       });
 
       it("all positions between the setted and last become undefined", () => {
         array[4] = 5;
-        expect(solveme).toEqual(array);
+        expect([1,2,3,undefined,5]).toEqual(array);
       });
     });
 
@@ -271,22 +271,22 @@ describe("Arrays", () => {
 
       it("length grows when more elements are added", () => {
         array[3] = 4;
-        expect(solveme).toEqual(array.length);
+        expect(4).toEqual(array.length);
       });
 
       it("length can be set to shrink the array", () => {
         array.length = 2;
-        expect(solveme).toEqual(array);
+        expect([1,2]).toEqual(array);
       });
 
       it("length can be set to enlarge the array filled with undefined", () => {
         array.length = 5;
-        expect(solveme).toEqual(array);
+        expect([1,2,3,undefined,undefined]).toEqual(array);
       });
 
       it("length grows when more elements are added and fills with undefineds", () => {
         array[4] = 5;
-        expect(solveme).toEqual(array.length);
+        expect(5).toEqual(array.length);
       });
     });
 
@@ -298,16 +298,16 @@ describe("Arrays", () => {
 
           it("push adds a new element to the end", () => {
             array.push(4);
-            expect(solveme).toEqual(array);
+            expect([1,2,3,4]).toEqual(array);
           });
 
           it("pop removes the last element", () => {
             array.pop();
-            expect(solveme).toEqual(array);
+            expect([1,2]).toEqual(array);
           });
 
           it("pop returns the value of the last element", () => {
-            expect(solveme).toBe(array.pop());
+            expect(3).toBe(array.pop());
           });
 
         });
@@ -316,16 +316,16 @@ describe("Arrays", () => {
 
           it("unshift adds a new element to the beggining", () => {
             array.unshift(0);
-            expect(solveme).toEqual(array);
+            expect([0,1,2,3]).toEqual(array);
           });
 
           it("pop removes the first element", () => {
             array.shift();
-            expect(solveme).toEqual(array);
+            expect([2,3]).toEqual(array);
           });
 
           it("pop returns the value of the first element", () => {
-            expect(solveme).toBe(array.shift());
+            expect(1).toBe(array.shift());
           });
 
         });
@@ -339,14 +339,14 @@ describe("Arrays", () => {
           array.push(4);
           array.shift();
 
-          expect(solveme).toEqual(array);
+          expect([2,3,4]).toEqual(array);
         });
 
         it("you can add elements in the head and get them from the tail", () => {
           array.unshift(0);
           array.pop();
 
-          expect(solveme).toEqual(array);
+          expect([0,1,2]).toEqual(array);
         });
 
       });
@@ -356,13 +356,13 @@ describe("Arrays", () => {
         it("splice can insert numbers in any position", () => {
           array = ["a", "c", "d"];
           array.splice(1, 0, "b");
-          expect(solveme).toEqual(array);
+          expect(['a','b','c','d']).toEqual(array);
         });
 
         it("splice can remove numbers in any position", () => {
           array = ["a", "x", "b", "c"];
           array.splice(1, 1);
-          expect(solveme).toEqual(array);
+          expect(['a','b','c']).toEqual(array);
         });
 
       });

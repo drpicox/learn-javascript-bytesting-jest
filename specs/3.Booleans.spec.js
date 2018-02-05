@@ -3,8 +3,8 @@ describe("Booleans", () => {
   describe("constants", () => {
 
     it("false and true are the only existing booleans", () => {
-      expect(solveme).toEqual(jasmine.any(Boolean));
-      expect(solveme).toEqual(jasmine.any(Boolean));
+      expect(true).toEqual(jasmine.any(Boolean));
+      expect(false).toEqual(jasmine.any(Boolean));
     });
 
   });
@@ -12,9 +12,9 @@ describe("Booleans", () => {
   describe("operations", () => {
 
     it("logical and, or, and not", () => {
-      expect(solveme).toBe(true && true);
-      expect(solveme).toBe(true || false);
-      expect(solveme).toBe(!false);
+      expect(true).toBe(true && true);
+      expect(true).toBe(true || false);
+      expect(true).toBe(!false);
     });
 
   });
@@ -22,27 +22,27 @@ describe("Booleans", () => {
   describe("cast", () => {
 
     it("use Boolean() to convert from truthy/falsy booleans to boolean", () => {
-      expect(solveme).toBe(Boolean(true));
-      expect(solveme).toBe(Boolean(false));
+      expect(true).toBe(Boolean(true));
+      expect(false).toBe(Boolean(false));
     });
 
     it("use Boolean() to convert from truthy/falsy objects to boolean", () => {
-      expect(solveme).toBe(Boolean([]));
-      expect(solveme).toBe(Boolean({}));
-      expect(solveme).toBe(Boolean(null));
-      expect(solveme).toBe(Boolean(undefined));
+      expect(true).toBe(Boolean([]));
+      expect(true).toBe(Boolean({}));
+      expect(false).toBe(Boolean(null));
+      expect(false).toBe(Boolean(undefined));
     });
 
     it("use Boolean() to convert from truthy/falsy strings to boolean", () => {
-      expect(solveme).toBe(Boolean("0"));
-      expect(solveme).toBe(Boolean("false"));
-      expect(solveme).toBe(Boolean(""));
+      expect(true).toBe(Boolean("0"));
+      expect(true).toBe(Boolean("false"));
+      expect(false).toBe(Boolean(""));
     });
 
     it("use Boolean() to convert from truthy/falsy numbers to boolean", () => {
-      expect(solveme).toBe(Boolean(1));
-      expect(solveme).toBe(Boolean(0));
-      expect(solveme).toBe(Boolean(NaN));
+      expect(true).toBe(Boolean(1));
+      expect(false).toBe(Boolean(0));
+      expect(false).toBe(Boolean(NaN));
     });
 
   });
@@ -54,7 +54,7 @@ describe("Booleans", () => {
       if ("3") {
         a = "changed";
       }
-      expect(solveme).toBe(a);
+      expect('changed').toBe(a);
     });
 
     it("example with 0", () => {
@@ -62,7 +62,7 @@ describe("Booleans", () => {
       if (0) {
         a = "changed";
       }
-      expect(solveme).toBe(a);
+      expect('original').toBe(a);
     });
 
     it("example with undefined", () => {
@@ -70,7 +70,7 @@ describe("Booleans", () => {
       if (undefined) {
         a = "changed";
       }
-      expect(solveme).toBe(a);
+      expect('original').toBe(a);
     });
 
     it("example with \"false\"", () => {
@@ -78,7 +78,7 @@ describe("Booleans", () => {
       if ("false") {
         a = "changed";
       }
-      expect(solveme).toBe(a);
+      expect('changed').toBe(a);
     });
 
   });
@@ -89,46 +89,46 @@ describe("Booleans", () => {
       const aValue = 'a';
       const bValue = 'b';
       const result = 1 < 2 ? aValue : bValue;
-      expect(solveme).toBe(result);
+      expect('a').toBe(result);
     });
 
     it('&& and || combination behaves very close to ? operator', () => {
       const aValue = 'a';
       const bValue = 'b';
       const result = 1 < 2 && aValue || bValue;
-      expect(solveme).toBe(result);
+      expect('a').toBe(result);
     });
 
     it('&& has lazy evaluation, if first falsy returns first', () => {
       const result = null && 'second';
-      expect(solveme).toBe(result);
+      expect(null).toBe(result);
     });
 
     it('&& has lazy evaluation, if first truthy returns second', () => {
       const result = 'first' && 'second';
-      expect(solveme).toBe(result);
+      expect('second').toBe(result);
     });
 
     it('|| has lazy evaluation, if first falsy returns second', () => {
       const result = null || 'second';
-      expect(solveme).toBe(result);
+      expect('second').toBe(result);
     });
 
     it('|| has lazy evaluation, if first truthy returns first', () => {
       const result = 'first' || 'second';
-      expect(solveme).toBe(result);
+      expect('first').toBe(result);
     });
 
     it('|| can be used to define default values', () => {
       const user = { name: 'John' };
       const role = user.role || 'guest';
-      expect(solveme).toBe(role);
+      expect('guest').toBe(role);
     });
 
     it('|| can be used to define ensure null instead of undefined', () => {
       const user = { name: 'John' };
       const role = user.role || null;
-      expect(solveme).toBe(role);
+      expect(null).toBe(role);
     });
 
   });
