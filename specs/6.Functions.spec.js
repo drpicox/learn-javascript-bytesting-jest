@@ -50,7 +50,7 @@ describe("Functions", () => {
 
     it("you can use parenthesis to declare a function in an object", () => {
       const object = {
-        incr(a) { 
+        incr(a) {
           return a + 1;
         },
       };
@@ -89,7 +89,7 @@ describe("Functions", () => {
     });
 
     it("function (a, b) { return a + b; } sums two numbers", () => {
-      const fn = (a,b) => a+b;
+      const fn = function (a, b) { return a + b; };
       expect(solveme).toBe(fn(2,3));
     });
 
@@ -107,7 +107,7 @@ describe("Functions", () => {
         expect(solveme).toEqual(fn(2));
         expect(solveme).toEqual(fn(5));
       });
-      
+
   });
 
   describe("missmatching parameters / returns", () => {
@@ -127,7 +127,7 @@ describe("Functions", () => {
       expect(solveme).toBe(fn());
     });
 
-    it("returns return undefined if no value specified", () => {
+    it("return returns undefined if no value specified", () => {
       const fn = () => { return; };
       expect(solveme).toBe(fn());
     });
@@ -145,11 +145,11 @@ describe("Functions", () => {
     });
   });
 
-  describe("return standarized bug", () => {
+  describe("return standardized bug", () => {
 
     it("return does not need ; to finish", () => {
       const fn = () => {
-        return 
+        return
           1 +
           1;
       };
@@ -158,7 +158,7 @@ describe("Functions", () => {
 
   });
 
-  describe("high order functions", () => {
+  describe("higher order functions", () => {
 
     it("functions can receive other functions", () => {
       const twice = (fn, value) => fn(fn(value));

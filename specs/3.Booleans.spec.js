@@ -47,7 +47,7 @@ describe("Booleans", () => {
 
   });
 
-  describe("if conditions follows truthy/falsy rules", () => {
+  describe("if conditions follow truthy/falsy rules", () => {
 
     it("example with \"3\"", () => {
       let a = "original";

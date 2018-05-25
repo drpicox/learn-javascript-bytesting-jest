@@ -77,7 +77,7 @@ describe("Classes", () => {
       expect(solveme).toBe(animal.salute());
     });
 
-    it("can create dynamically new own properties through this", () => {
+    it("can create own new properties dynamically through this", () => {
       class Animal {
         setName(name) { this.name = name; }
         getName() { return this.name; }
@@ -97,7 +97,7 @@ describe("Classes", () => {
     });
   });
 
-  it("constructor is a special funcion called constructor", () => {
+  it("constructor is a special function called constructor", () => {
     class Animal {
       constructor(name) {
         this.name = name;
@@ -198,7 +198,7 @@ describe("Classes", () => {
       expect(solveme).toBe(thisTest.getThisWithFn());
     });
 
-    it('methods does not exists, they are simple functions', () => {
+    it('methods dont exist, they are simple functions', () => {
       class MethodTest {
         four() { return 4; }
       }
@@ -207,7 +207,7 @@ describe("Classes", () => {
       expect(solveme).toBe(four());
     });
 
-    it('functions called without the object, does have undefined this', () => {
+    it('functions called without the object, have undefined this', () => {
       class ThisTest {
         getThis() { return this; }
       }
@@ -216,7 +216,7 @@ describe("Classes", () => {
       expect(solveme).toBe(getThis());
     });
 
-    it('functions called with another object, does have the other object as this', () => {
+    it('functions called with another object, have the other object as this', () => {
       class ThisTest {
         getThis() { return this; }
       }
@@ -227,7 +227,7 @@ describe("Classes", () => {
       expect(solveme).toBe(otherObj.getThis());
     });
 
-    it('shorthand functions always preserves the original this', () => {
+    it('shorthand functions always preserve the original this', () => {
       class ThisTest {
         getGetThisFn() {
           const fn = () => this;
@@ -259,7 +259,7 @@ describe("Classes", () => {
     });
   });
 
-  it('classes are like any other object, and can be assigned, used as parameter, ...', () => {
+  it('classes are like any other object, and can be assigned, used as a parameter, ...', () => {
     const makeAnimalClass = () => {
       class Animal {};
       return Animal;

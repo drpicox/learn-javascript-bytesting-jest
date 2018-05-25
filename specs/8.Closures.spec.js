@@ -2,7 +2,7 @@ describe('Closures', () => {
 
   it('inner functions can use parent arguments', () => {
     const makeConstant = (number) => {
-      return () => number; 
+      return () => number;
     };
     const six = makeConstant(6);
 
@@ -40,12 +40,12 @@ describe('Closures', () => {
     expect(solveme).toBe(countAudience());
   });
 
-  it('can can be used to create objects with private variables (module pattern)', () => {
+  it('can be used to create objects with private variables (module pattern)', () => {
     const counter = (() => {
       let count = 0;
       return {
-        incr() { count += 1; }, 
-        decr() { count -= 1; }, 
+        incr() { count += 1; },
+        decr() { count -= 1; },
         get() { return count; },
       };
     })();
@@ -56,7 +56,7 @@ describe('Closures', () => {
     expect(solveme).toBe(counter.count);
   });
 
-  it('use array traversal high order functions', () => {
+  it('use array traversal higher order functions', () => {
     const makeConstants = () => {
       return [1,2,3].map(i => {
         return () => i;
@@ -109,7 +109,7 @@ describe('Closures', () => {
     expect(solveme).toBe(audienceCounter.count());
   });
 
-  it('but closures has private variables', () => {
+  it('but closures have private variables', () => {
     const makeCountFn = () => {
       let count = 0;
       return () => {
