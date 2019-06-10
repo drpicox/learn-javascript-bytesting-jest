@@ -95,7 +95,7 @@ describe("Objects", () => {
   describe("spread", () => {
 
     let salute;
-    let source;
+    let meaning;
     beforeEach(() => {
       salute = {
         hello: "world",
