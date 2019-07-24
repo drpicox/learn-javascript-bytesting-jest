@@ -2,13 +2,13 @@ describe("Strings", () => {
 
   describe("constants", () => {
 
-    it("\"hello\", \"a\", \"long word\" are constans", () => {
+    it("\"hello\", \"a\", \"long word\" are constants", () => {
       expect(solveme).toBe("hello");
       expect(solveme).toBe("a");
       expect(solveme).toBe("long word");
     });
 
-    it("can be written with 'single quotes' instead of double quoetes", () => {
+    it("can be written with 'single quotes' instead of double quotes", () => {
       expect(solveme).toBe('hello');
       expect(solveme).toBe('a');
       expect(solveme).toBe('long word');
@@ -68,19 +68,19 @@ world`)
 
   describe("comparisons", () => {
 
-    it("are alphabetically", () => {
+    it("are alphabetical", () => {
       expect(solveme).toBe("jon" < "cersei");
       expect(solveme).toBe("sansa" <= "arya");
       expect(solveme).toBe("jaime" >= "davos");
       expect(solveme).toBe("samwell" > "daenerys");
     });
 
-    it("two strings are equal if have the same length and same characters", () => {
+    it("two strings are equal if they have the same length and same characters", () => {
       expect(solveme).toBe("jon" === "jonnas");
       expect(solveme).toBe("podrick" !== "hodor");
     });
 
-    it("things are equal only if they are of the same type", () => {     
+    it("things are equal only if they are of the same type", () => {
       expect(solveme).toBe("2" === 2);
       expect(solveme).toBe("2" !== 2);
     });
@@ -112,15 +112,15 @@ world`)
       expect(solveme).toBe("foobar".indexOf("bar"));
     });
 
-    it("indexOf returns -1 if no matching", () => {
+    it("indexOf returns -1 if no match found", () => {
       expect(solveme).toBe("foobar".indexOf("pop"));
     });
 
-    it("includes true if there is an occurrence of a substring", () => {
+    it("includes returns true if there is an occurrence of a substring", () => {
       expect(solveme).toBe("foobar".includes("bar"));
     });
 
-    it("includes returns false if no matching", () => {
+    it("includes returns false if no match found", () => {
       expect(solveme).toBe("foobar".includes("pop"));
     });
 

@@ -35,7 +35,7 @@ describe("Numbers", () => {
       expect(solveme).toBe(2 + 2 * 3 - 1);
     });
 
-    it("has reminder", () => {
+    it("has remainder", () => {
       expect(solveme).toBe(18 % 5);
     });
 
@@ -50,12 +50,12 @@ describe("Numbers", () => {
       expect(solveme).toBe(1 > 1);
     });
 
-    it("equal and different uses strict equality comparissions (a === b & a !== b)", () => {
+    it("equal and different uses strict equality comparisons (a === b & a !== b)", () => {
       expect(solveme).toBe(1 === 2);
       expect(solveme).toBe(1 !== 2);
     });
 
-    it("never use abstract equality (a == b or a != b) you cannot trust it", () => {     
+    it("never use abstract equality (a == b or a != b) you cannot trust it", () => {
       expect(solveme).toBe(2 == "2");
       expect(solveme).toBe(0 == []);
       expect(solveme).toBe(2 != "2");
@@ -123,6 +123,6 @@ describe("Numbers", () => {
     });
 
   });
-  
+
 
 });

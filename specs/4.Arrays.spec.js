@@ -1,6 +1,6 @@
 describe("Arrays", () => {
 
-  describe("constants follows JSON rules", () => {
+  describe("constants follow JSON rules", () => {
 
     it("[1,2,3], [42,\"sense\",[\"of\", \"life\"]], []", () => {
       expect(solveme).toEqual(jasmine.any(Array));
@@ -64,13 +64,13 @@ describe("Arrays", () => {
         expect(solveme).toBe(array.sort());
       });
 
-      it("sort orders strings by default, if no, it internally converts all elements to string", () => {
+      it("sort orders strings by default, if not, it internally converts all elements to string", () => {
         array = [1, 5, 10];
 
         expect(solveme).toEqual(array.sort());
       });
 
-      it("sort accepts a ordering function", () => {
+      it("sort accepts an ordering function", () => {
         array = [1, 5, 10];
 
         expect(solveme).toEqual(array.sort((a, b) => a - b));
@@ -79,7 +79,7 @@ describe("Arrays", () => {
     });
 
     describe("reverse", () => {
-  
+
       it("reverses the contents of an array", () => {
         array.reverse();
         expect(solveme).toEqual(array);
@@ -121,7 +121,7 @@ describe("Arrays", () => {
         expect(solveme).toEqual(array.concat([4,5]));
       });
 
-      it("does not modifies the array", () => {
+      it("does not modify the array", () => {
         array.concat([4,5]);
         expect(solveme).toEqual(array);
       });
@@ -133,7 +133,7 @@ describe("Arrays", () => {
         expect(solveme).toEqual(array.filter(n => n % 2 === 1));
       });
 
-      it("filter can remove an element from array", () => {
+      it("filter can remove an element from an array", () => {
         const newArray = array.filter(n => n === 1);
         expect(solveme).toEqual(newArray);
       });
@@ -156,7 +156,7 @@ describe("Arrays", () => {
         expect(solveme).toBe(array.some(n => n === -1));
       });
 
-      it("some can be used to process an array until a condition found", () => {
+      it("some can be used to process an array until a condition is found", () => {
         let result = 1;
         array.some(n => {
           result *= n;
@@ -189,7 +189,7 @@ describe("Arrays", () => {
 
       beforeEach(() => { array = ["a", "b", "c"]; });
 
-      it("indexOf(value) looks for the same exact value position", () => {
+      it("indexOf(value) looks for the same exact value's position", () => {
         expect(solveme).toBe(array.indexOf("b"));
       });
 
@@ -256,7 +256,7 @@ describe("Arrays", () => {
   xdescribe("complete later", () => {
 
     describe("get set", () => {
-      it("you can set any position (grows dinamically)", () => {
+      it("you can set any position (grows dynamically)", () => {
         array[4] = 5;
         expect(solveme).toBe(array[4]);
       });

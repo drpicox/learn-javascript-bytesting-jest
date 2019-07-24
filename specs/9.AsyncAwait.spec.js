@@ -4,18 +4,18 @@ describe('Async/Await', () => {
     setTimeout(resolve, ms);
   });
 
-  it('by default javascript code is synchronous: it waits nothing', () => {
+  it('by default javascript code is synchronous: it waits for nothing', () => {
     const startTime = Date.now();
     sleep(100); // 100ms = 0.1 second
     const stopTime = Date.now();
 
-    // wait is 100 so... 
+    // wait is 100 so...
     // if it waits it should be at least 100
     // make your bigger guess
     expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
   });
 
-  it('javascript can emulate asynchronous code with async/await keywords', 
+  it('javascript can emulate asynchronous code with async/await keywords',
     async () => {
       const startTime = Date.now();
       await sleep(100); // 100ms = 0.1 second
@@ -26,7 +26,7 @@ describe('Async/Await', () => {
     }
   );
 
-  it('await more than one result in serie', 
+  it('await more than one result in series',
     async () => {
       const startTime = Date.now();
 
@@ -42,7 +42,7 @@ describe('Async/Await', () => {
     }
   );
 
-  it('stores "waits" in variables and await them later', 
+  it('stores "waits" in variables and await them later',
     async () => {
       const startTime = Date.now();
 
@@ -58,7 +58,7 @@ describe('Async/Await', () => {
     }
   );
 
-  it('makes waitings in parallel when saving "waits" in variables and resolving them later', 
+  it('makes waitings in parallel when saving "waits" in variables and resolving them later',
     async () => {
       const startTime = Date.now();
 
@@ -100,7 +100,7 @@ describe('Async/Await', () => {
     }
 
     expect(solveme).toBe(thrown);
-    // but probably the console has a 
+    // but probably the console has a
     // UnhandledPromiseRejectionWarning: Unhandled promise rejection
   });
 
