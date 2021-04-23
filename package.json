@@ -1,22 +1,21 @@
 {
-  "name": "evolve-workshop-bytesting",
+  "name": "learn-javascript-bytesting-jest",
   "version": "1.0.0",
-  "description": "",
+  "description": "Learn javascript by solving tests step by step",
   "main": "index.js",
+  "author": "David Rodenas (https://david-rodenas.com)",
+  "repository": "github:drpicox/learn-javascript-bytesting-jest",
   "scripts": {
     "start": "jest --watchAll",
     "test": "jest"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "chalk": "^1.1.3",
-    "jest": "^20.0.4"
+    "chalk": "^4.1.1",
+    "jest": "^26.6.3"
   },
   "jest": {
+    "testEnvironment": "node",
     "verbose": true,
     "reporters": [
       "./helpers/reporter.js"

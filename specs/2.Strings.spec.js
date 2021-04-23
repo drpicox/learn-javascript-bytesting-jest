@@ -1,17 +1,15 @@
 describe("Strings", () => {
-
   describe("constants", () => {
-
-    it("\"hello\", \"a\", \"long word\" are constans", () => {
+    it('"hello", "a", "long word" are constans', () => {
       expect(solveme).toBe("hello");
       expect(solveme).toBe("a");
       expect(solveme).toBe("long word");
     });
 
     it("can be written with 'single quotes' instead of double quoetes", () => {
-      expect(solveme).toBe('hello');
-      expect(solveme).toBe('a');
-      expect(solveme).toBe('long word');
+      expect(solveme).toBe("hello");
+      expect(solveme).toBe("a");
+      expect(solveme).toBe("long word");
     });
 
     it("can be written with `back-tick` instead of double quotes", () => {
@@ -26,10 +24,10 @@ describe("Strings", () => {
 
     it("template literals can be multiline, adds \\n automatically", () => {
       expect(solveme).toBe(`hello
-world`)
+world`);
     });
 
-    it('template literals can use interpolation with ${expression}', () => {
+    it("template literals can use interpolation with ${expression}", () => {
       const saluteTo = "world";
 
       expect(solveme).toBe(`hello ${saluteTo}`);
@@ -37,13 +35,11 @@ world`)
     });
 
     it("character is a string with length 1", () => {
-      expect(solveme).toBe("hello"[1])
+      expect(solveme).toBe("hello"[1]);
     });
-
   });
 
   describe("encoded as UCS-2", () => {
-
     it("each position is 16bits and most characters are length 1", () => {
       expect(solveme).toBe("hello".length);
       expect(solveme).toBe("mataró".length);
@@ -55,19 +51,15 @@ world`)
     it("some characters have double length", () => {
       expect(solveme).toBe("𝄞".length);
     });
-
   });
 
   describe("operators", () => {
-
     it("a + b concatenates two strings", () => {
       expect(solveme).toBe("hello " + "world");
     });
-
   });
 
   describe("comparisons", () => {
-
     it("are alphabetically", () => {
       expect(solveme).toBe("jon" < "cersei");
       expect(solveme).toBe("sansa" <= "arya");
@@ -80,7 +72,7 @@ world`)
       expect(solveme).toBe("podrick" !== "hodor");
     });
 
-    it("things are equal only if they are of the same type", () => {     
+    it("things are equal only if they are of the same type", () => {
       expect(solveme).toBe("2" === 2);
       expect(solveme).toBe("2" !== 2);
     });
@@ -91,11 +83,9 @@ world`)
       expect(solveme).toBe("tywin" != true);
       expect(solveme).toBe("joffrey" != ["joffrey"]);
     });
-
   });
 
   describe("methods", () => {
-
     it("slice(begin, end) gets a substring from the string", () => {
       expect(solveme).toBe("hello".slice(0, 4));
     });
@@ -131,15 +121,11 @@ world`)
     it("toLowerCase converts a string to lowercase", () => {
       expect(solveme).toBe("Hello".toLowerCase());
     });
-
   });
 
   describe("cast to String", () => {
-
     it("can convert any object to string with String()", () => {
       expect(solveme).toBe(String(3));
     });
-
   });
-
 });

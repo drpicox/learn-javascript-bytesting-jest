@@ -1,7 +1,5 @@
 describe("Numbers", () => {
-
   describe("constants", () => {
-
     it("1,2,5000 are numbers", () => {
       expect(solveme).toEqual(jasmine.any(Number));
       expect(solveme).toEqual(jasmine.any(Number));
@@ -26,11 +24,9 @@ describe("Numbers", () => {
     it("gives NaN when something goes wrong, example 0 divided by 0", () => {
       expect(solveme).toEqual(NaN);
     });
-
   });
 
   describe("operations", () => {
-
     it("operate over numbers like in C/Java/C#", () => {
       expect(solveme).toBe(2 + 2 * 3 - 1);
     });
@@ -38,11 +34,9 @@ describe("Numbers", () => {
     it("has reminder", () => {
       expect(solveme).toBe(18 % 5);
     });
-
   });
 
   describe("comparisons", () => {
-
     it("has standard comparators", () => {
       expect(solveme).toBe(1 < 2);
       expect(solveme).toBe(1 <= 1);
@@ -55,25 +49,21 @@ describe("Numbers", () => {
       expect(solveme).toBe(1 !== 2);
     });
 
-    it("never use abstract equality (a == b or a != b) you cannot trust it", () => {     
+    it("never use abstract equality (a == b or a != b) you cannot trust it", () => {
       expect(solveme).toBe(2 == "2");
       expect(solveme).toBe(0 == []);
       expect(solveme).toBe(2 != "2");
       expect(solveme).toBe(0 != []);
     });
-
   });
 
   describe("methods", () => {
-
     it("toFixed converts a number into a string with a fixed number of decimals", () => {
       expect(solveme).toBe((3.14159).toFixed(2));
     });
-
   });
 
   describe("Math", () => {
-
     it("Math.max gets the maximum of two numbers", () => {
       expect(solveme).toBe(Math.max(2, 12));
     });
@@ -95,11 +85,9 @@ describe("Numbers", () => {
     it("Math.round gets the nearest integer", () => {
       expect(solveme).toBe(Math.round(5.1));
     });
-
   });
 
   describe("Cast to number", () => {
-
     it("use Number(string) to convert a string to a number", () => {
       expect(solveme).toBe(Number("5"));
       expect(solveme).toBe(Number("7.5"));
@@ -109,11 +97,9 @@ describe("Numbers", () => {
       expect(solveme).toEqual(Number("e11.1"));
       expect(solveme).toEqual(Number("5pm"));
     });
-
   });
 
   describe("NaN", () => {
-
     it("NaN is NOT a NaN", () => {
       expect(solveme).toBe(NaN === NaN);
     });
@@ -121,8 +107,5 @@ describe("Numbers", () => {
     it("use isNaN(number) to know if it is NaN", () => {
       expect(solveme).toBe(isNaN(NaN));
     });
-
   });
-  
-
 });
